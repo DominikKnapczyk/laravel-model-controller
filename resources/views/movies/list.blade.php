@@ -26,5 +26,32 @@
     </div>
   </nav>
   
+  <main>
+    <section class="container">
+      <h2 class="my-4">MOVIES</h2>
+
+      <div class="row">
+        <div class="card-deck">
+          @forelse ($movies as $movie)
+              <div class="col-md-12">
+                  <div class="card mb-4 box-shadow">
+                      <div class="card-body">
+                          <h5 class="card-title">{{ $movie->title }}</h5>
+                          <p class="card-text"><strong>Titolo originale:</strong> {{ $movie->original_title }}</p>
+                          <p class="card-text"><strong>Nazionalità:</strong> {{ $movie->nationality }}</p>
+                          <p class="card-text"><strong>Data di uscita:</strong> {{ $movie->date }}</p>
+                          <p class="card-text"><strong>Voto:</strong> {{ $movie->vote }}</p>
+                      </div>
+                  </div>
+              </div>
+          @empty
+              <div class="col-md-12">
+                  <div class="alert alert-info">Non ci sono film disponibili.</div>
+              </div>
+          @endforelse
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
